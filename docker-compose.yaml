@@ -1,0 +1,53 @@
+version: "3.8"
+services:
+  master:
+    build:
+      context: ./master-cloud
+      dockerfile: Dockerfile
+    container_name: master-cloud
+    volumes:
+      - ./data/master-data:/app/data
+      - /app/temp
+      - ./data/master-metadb.csv:/app/metadb.csv
+    ports:
+      - "8000:5000"
+  slave_1:
+    build:
+      context: ./slave-cloud
+      dockerfile: Dockerfile
+    container_name: slave-cloud-1
+    volumes:
+      - ./data/slave-1-data:/app/data
+      - ./data/slave-1-store-logs.csv:/app/store-logs.csv
+  slave_2:
+    build:
+      context: ./slave-cloud
+      dockerfile: Dockerfile
+    container_name: slave-cloud-2
+    volumes:
+      - ./data/slave-2-data:/app/data
+      - ./data/slave-2-store-logs.csv:/app/store-logs.csv
+  slave_3:
+    build:
+      context: ./slave-cloud
+      dockerfile: Dockerfile
+    container_name: slave-cloud-3
+    volumes:
+      - ./data/slave-3-data:/app/data
+      - ./data/slave-3-store-logs.csv:/app/store-logs.csv
+  slave_4:
+    build:
+      context: ./slave-cloud
+      dockerfile: Dockerfile
+    container_name: slave-cloud-4
+    volumes:
+      - ./data/slave-4-data:/app/data
+      - ./data/slave-4-store-logs.csv:/app/store-logs.csv
+  slave_5:
+    build:
+      context: ./slave-cloud
+      dockerfile: Dockerfile
+    container_name: slave-cloud-5
+    volumes:
+      - ./data/slave-5-data:/app/data
+      - ./data/slave-5-store-logs.csv:/app/store-logs.csv
