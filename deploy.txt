@@ -1,5 +1,6 @@
 ssh -i "MCS-Key.pem" ec2-user@ec2-43-207-157-9.ap-northeast-1.compute.amazonaws.com
 
 cd Multi-Cloud-Simulation/data
+docker-compose up -d
 
 cat slave-3-store-logs.csv
